@@ -22,3 +22,4 @@ sudo ln -s /home/box/etc/gunicorn.conf /etc/gunicorn.d/test
 cp hello.py /home/box/web/
 
 sudo /etc/init.d/gunicorn restart
+sudo gunicorn -c /etc/init.d/gunicorn.conf -b 0.0.0.0:8080 hello:wsgi_application
