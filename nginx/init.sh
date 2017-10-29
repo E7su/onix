@@ -8,6 +8,5 @@ mkdir -p /home/box/web/public/js
 mkdir -p /home/box/web/uploads
 mkdir -p /home/box/web/etc
 
-sudo unlink /etc/nginx/sites-enabled/default
-cp /etc/nginx/nginx.conf /home/box/web/etc
+sudo ln -sf /home/box/web/etc/nginx.conf  /etc/nginx/sites-enabled/default
 sudo /etc/init.d/nginx restart
