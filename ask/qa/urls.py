@@ -1,3 +1,6 @@
+from django.conf.urls import include, url, patterns
+from django.contrib import admin
+admin.autodiscover()
 
 urlpatterns = patterns(
 url(r'^$', views.test),
