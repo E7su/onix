@@ -20,11 +20,10 @@ cp wsgi/gunicorn.conf /home/box/web/etc/
 cp etc/gunicorn-django.conf /home/box/web/etc/                                                                                                                  
 sudo ln -s /home/box/web/etc/gunicorn.conf /etc/gunicorn.d/gunicorn.conf                                                                                        
 sudo ln -s /home/box/web/etc/gunicorn-django.conf /etc/gunicorn.d/gunicorn-django.conf                                                                          
-                                                                                                                                                                
-                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                     
 # copy wsgi application                                                                                                                                         
 cp wsgi/hello.py /home/box/web/                                                                                                                                 
 cp -r ask/ /home/box/web/                                                                                                                                       
 #sudo /etc/init.d/gunicorn restart                                                                                                                              
-sudo gunicorn -c gunicorn.conf -b 0.0.0.0:8080 hello:wsgi_application                                                                                           
-sudo gunicorn -c /home/box/web/etc/gunicorn-django.conf ask.qa:views
+sudo gunicorn -c /home/box/web/etc/gunicorn.conf -b 0.0.0.0:8080 hello:wsgi_application                                                                                           
+sudo gunicorn -c /home/box/web/etc/gunicorn-django.conf -b 0.0.0.0:8000 ask.ask.wsgi:application
